@@ -263,6 +263,7 @@ PRODUCT_PACKAGES += \
     Launcher3OverlayDevice \
     LineageSDKOverlayDevice \
     LineageSettingsOverlayDevice \
+    LineageSettingsProviderOverlayDevice \
     LineageSystemUIOverlayDevice \
     SettingsLibOverlayDevice \
     SettingsOverlayDevice \
