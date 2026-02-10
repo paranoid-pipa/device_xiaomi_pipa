@@ -562,11 +562,6 @@ vendor/firmware/a650_zap.mdt
 vendor/lib/hw/vulkan.adreno.so|267e7821c594c0db7dde56b7ef53ceb5980716e1
 vendor/lib64/hw/vulkan.adreno.so|ce27b014f47e93fa55096f5d50d686fbe12c3e8f
 
-# GNSS configs
-vendor/etc/izat.conf
-vendor/etc/lowi.conf
-vendor/etc/xtwifi.conf
-
 # IPA firmware
 vendor/etc/init/ipa_fws.rc
 vendor/firmware/ipa_fws.b00
