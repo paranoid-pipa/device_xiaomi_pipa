@@ -271,11 +271,6 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-PRODUCT_PACKAGES += \
-    vendor_bt_firmware_mountpoint \
-    vendor_dsp_mountpoint \
-    vendor_firmware_mnt_mountpoint
-
 # Peripheral Manager
 PRODUCT_PACKAGES += \
     XiaomiPeripheralManager
@@ -291,13 +286,6 @@ PRODUCT_COPY_FILES += \
 # Public libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
-
-# QTI fwk-detect
-PRODUCT_PACKAGES += \
-    libqti_vndfwk_detect.vendor
-
-# Recovery
-$(call soong_config_set_bool,recovery,target_recovery_uses_qti_drm,true)
 
 # Sensors
 PRODUCT_PACKAGES += \
