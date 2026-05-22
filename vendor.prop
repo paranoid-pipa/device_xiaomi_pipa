@@ -273,9 +273,6 @@ persist.sys.oem.otg_support=true
 # PASR
 vendor.power.pasr.enabled=false
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-
 # Seamless transfer
 sys.fflag.override.settings_seamless_transfer=true
 

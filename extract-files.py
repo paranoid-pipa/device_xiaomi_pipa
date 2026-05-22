@@ -87,7 +87,6 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 namespace_imports = [
-    'hardware/qcom-caf/common/libqti-perfd-client',
     'hardware/qcom-caf/sm8250',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
