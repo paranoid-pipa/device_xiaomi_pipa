@@ -297,7 +297,8 @@ PRODUCT_COPY_FILES += \
 
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
-    init
+    init \
+    overlay \
 
 # Sensors
 PRODUCT_PACKAGES += \
