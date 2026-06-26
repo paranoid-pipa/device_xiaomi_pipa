@@ -140,10 +140,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpiex_shim
 
-# Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Device-specific settings
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer \
