@@ -11,23 +11,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 # Inherit some common lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
-# Blur UI
-TARGET_ENABLE_BLUR := true
-
-# Bypass Charging
-BYPASS_CHARGE_SUPPORTED := true
-
-# GMS
-WITH_GMS := true
-
 # Inherit from pipa device
-$(call inherit-product, device/xiaomi/pipa/kona.mk)
+$(call inherit-product, device/xiaomi/pipa/device.mk)
 
 PRODUCT_NAME := lineage_pipa
 PRODUCT_DEVICE := pipa
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Pad 6
+PRODUCT_MODEL := 23043RP34G
 
 PRODUCT_CHARACTERISTICS := tablet
 TARGET_SUPPORTS_QUICK_TAP := false

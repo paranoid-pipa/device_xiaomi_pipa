@@ -487,27 +487,6 @@
     <ctl name="MultiMedia16 Mixer TERT_MI2S_TX" value="0" />
     <ctl name="MultiMedia16 Mixer USB_AUDIO_TX" value="0" />
 
-    <!-- ultrasound related -->
-    <ctl name="Ultrasound Enable" value="Off" />
-    <ctl name="Ultrasound RampDown" value="Off"/>
-    <ctl name="Ultrasound Event" value="0"/>
-    <ctl name="Ultrasound Mode" value="0"/>
-    <ctl name="Ultrasound Rx Port" value="Off"/>
-    <ctl name="Ultrasound Microphone Index" value="0"/>
-    <ctl name="Ultrasound Suspend" value="0"/>
-    <ctl name="Ultrasound ReportNone" value="0"/>
-    <ctl name="Ultrasound Rx Device" value="0"/>
-    <!-- for mius start -->
-    <ctl name="Mi_Ultrasound Enable" value="Off" />
-    <ctl name="Mi_Ultrasound RampDown" value="Off"/>
-    <ctl name="Mi_Ultrasound Event" value="0"/>
-    <ctl name="Mi_Ultrasound Mode" value="0"/>
-    <ctl name="Mi_Ultrasound Rx Port" value="Off"/>
-    <ctl name="Mi_Ultrasound Microphone Index" value="0"/>
-    <ctl name="Mi_Ultrasound Suspend" value="0"/>
-    <ctl name="Mi_Ultrasound ReportNone" value="0"/>
-    <ctl name="Mi_Ultrasound Rx Device" value="0"/>
-
     <!-- Add the new path begin -->
     <path name="deep-buffer-playback speaker">
         <ctl name="TERT_MI2S_RX Audio Mixer MultiMedia1" value="1" />

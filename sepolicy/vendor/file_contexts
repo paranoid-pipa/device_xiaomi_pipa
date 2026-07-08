@@ -15,46 +15,31 @@
 /vendor/bin/batterysecret                                                                           u:object_r:vendor_batterysecret_exec:s0
 
 # Dolby
-/data/vendor/dolby(/.*)?                                                                                   u:object_r:vendor_data_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                                   u:object_r:hal_dms_default_exec:s0
-
-# Fingerprint
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi                      u:object_r:hal_fingerprint_default_exec:s0
-
-# Fingerprint - devices
-/dev/goodix_fp                                                                                      u:object_r:fingerprint_device:s0
-
-# Fingerprint - data
-/data/gf_data(/.*)?                                                                                 u:object_r:fingerprint_data_file:s0
-/data/vendor/goodix(/.*)?                                                                           u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/fpc(/.*)?                                                                              u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/fpdump(/.*)?                                                                           u:object_r:fingerprint_vendor_data_file:s0
-/mnt/vendor/persist/fpc(/.*)?                                                                       u:object_r:vendor_persist_fingerprint_file:s0
-/mnt/vendor/persist/goodix(/.*)?                                                                    u:object_r:vendor_persist_fingerprint_file:s0
+/data/vendor/dolby(/.*)?                                                                            u:object_r:vendor_data_file:s0
+/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                            u:object_r:hal_dms_default_exec:s0
 
 # Hexagon DSP-side executable needed for Halide operation
 # This is labeled as vendor_public_adsprpcd_file as it needs to be read by apps
 # (e.g. Google Camera App)
 /mnt/vendor/dsp/fastrpc_shell_3                                                                     u:object_r:vendor_public_adsprpcd_file:s0
 
-# IR
-/vendor/bin/hw/android\.hardware\.ir-service\.xiaomi                                                u:object_r:hal_ir_default_exec:s0
-
 # Keyboard
-/vendor/bin/xiaomi-keyboard                                                                         u:object_r:xiaomi_keyboard_exec:s0
+/vendor/bin/xiaomi-keyboard		                                                            u:object_r:xiaomi_keyboard_exec:s0
 
 # LED
 /sys/devices/platform/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]+/spmi[0-9]+-[0-9]+/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]+:qcom,leds@[a-z0-9]+/leds(/.*)?    u:object_r:sysfs_leds:s0
 /sys/devices/platform/soc/[a-z0-9]+.i2c/i2c-[0-9]+/[0-9]+-[0-9]+/leds(/.*)?                         u:object_r:sysfs_leds:s0
 
 # Pen
-/vendor/bin/xiaomi-pen		                                                                        u:object_r:xiaomi_pen_exec:s0
+/vendor/bin/xiaomi-pen		                                                                    u:object_r:xiaomi_pen_exec:s0
 
 # Persist subsystem
 /mnt/vendor/persist/subsys(/.*)?                                                                    u:object_r:vendor_persist_subsys_file:s0
 
-# Sensors
-/dev/akm09970                                                                                       u:object_r:hall_device:s0
+# Process and system statistics files
+/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage                                                        u:object_r:vendor_sysfs_kgsl:s0
+/sys/class/kgsl/kgsl-3d0/temp                                                                       u:object_r:vendor_sysfs_kgsl:s0
+/proc/stat                                                                                          u:object_r:proc_stat:s0
 
 # Sensors - data
 /data/vendor/sensor_log(/.*)?                                                                       u:object_r:vendor_sensor_log_data_file:s0
@@ -75,10 +60,6 @@
 # Touch Sampling
 /sys/devices/virtual/touch/touch_dev/bump_sample_rate                                               u:object_r:sysfs_htsr:s0
 
-# Ultrasound devices
-/dev/elliptic[0-9]+                                                                                 u:object_r:ultrasound_device:s0
-/dev/mius(.*)?                                                                                      u:object_r:ultrasound_device:s0
-
 # Wakeup source stats
 /sys/devices/virtual/input/input[0-9]+/wakeup[0-9]+(/.*)?                                           u:object_r:sysfs_wakeup:s0
 
@@ -87,13 +68,8 @@
 /mnt/vendor/persist/wlan_mac\.bin                                                                   u:object_r:vendor_persist_wcnss_service_file:s0
 /vendor/bin/nv_mac                                                                                  u:object_r:vendor_wcnss_service_exec:s0
 
-# Xiaomi Keyboard
-/dev/nanodev0                                                                                       u:object_r:xiaomi_keyboard_device:s0
-
 # Xiaomi Touch
-/dev/xiaomi-touch                                                                                   u:object_r:xiaomi_touch_device:s0
+/dev/xiaomi-touch			                                                            u:object_r:xiaomi_touch_device:s0
 
-# Process and system statistics files
-/proc/stat u:object_r:proc_stat:s0
-/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage    u:object_r:vendor_sysfs_kgsl:s0
-/sys/class/kgsl/kgsl-3d0/temp                    u:object_r:vendor_sysfs_kgsl:s0
+# Xiaomi Keyboard
+/dev/nanodev0				                                                            u:object_r:xiaomi_keyboard_device:s0

@@ -6,9 +6,6 @@
 
 DEVICE_PATH := device/xiaomi/pipa
 
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
 # A/B
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 AB_OTA_UPDATER := true
@@ -27,15 +24,18 @@ AB_OTA_PARTITIONS += \
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a-dotprod
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_VARIANT := cortex-a76
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := kryo385
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-2a
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a76
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 
 # Audio
 AUDIO_FEATURE_ENABLED_AHAL_EXT := false
@@ -52,18 +52,12 @@ AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 AUDIO_FEATURE_ENABLED_SSR := false
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
-
 # Board
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kona
 TARGET_NO_BOOTLOADER := true
-
-# Camera Malloc
-MALLOC_SVELTE_FOR_LIBC32 := true
 
 # Display
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x546C00000000
@@ -74,12 +68,6 @@ TARGET_SCREEN_DENSITY := 400
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
-# Firmware
-include vendor/xiaomi/pipa-firmware/BoardConfigVendor.mk
-
-# HWUI
-HWUI_COMPILE_FOR_PERF := true
-
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_KERNEL_BASE := 0x00000000
@@ -87,12 +75,10 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm
 BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
-BOARD_KERNEL_CMDLINE += kpti=off
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-TARGET_KERNEL_NO_GCC := true
 
 # Kernel - prebuilt
 INLINE_KERNEL_BUILDING := false
@@ -129,38 +115,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := $(ALL_PARTITIONS)
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # (BOARD_SUPER_PARTITION_SIZE - 4MiB)
 
 # Partitions - reserved size
-ifeq ($(PRODUCT_VIRTUAL_AB_OTA),true)
-    BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE ?= true
-endif
-
-ifeq (,$(filter true, $(WITHOUT_RESERVED_SIZE) $(WITH_GMS)))
-    BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT ?= -1
-
-    ifeq ($(BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE),true)
-        ifeq ($(PRODUCT_IS_ATV),true)
-            BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE ?= 450000000
-        else
-            BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE ?= 1188036608
-        endif
-    else
-        ifeq ($(PRODUCT_IS_ATV),true)
-            BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE ?= 470000000
-        else
-            BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE ?= 1957691392
-        endif
-    endif
-
-    BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT ?= -1
-    ifeq ($(PRODUCT_IS_ATV),true)
-        BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE ?= 40000000
-        BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE ?= 27000000
-    else
-        BOARD_SYSTEM_EXTIMAGE_EXTFS_INODE_COUNT ?= -1
-        BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE ?= 94371840
-        BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE ?= 94371840
-    endif
-
-endif
+-include vendor/lineage/config/BoardConfigReservedSize.mk
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
@@ -168,7 +123,6 @@ TARGET_BOARD_PLATFORM := kona
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
-TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
@@ -176,7 +130,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 $(call soong_config_set_bool,recovery,target_recovery_uses_qti_drm,true)
 TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_RIGHT
 TARGET_RECOVERY_DEFAULT_TOUCH_ROTATION := ROTATION_RIGHT
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -192,7 +146,6 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
-SELINUX_IGNORE_NEVERALLOWS := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -223,18 +176,17 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_DEFAULT := qca_cld3
-# (1 STA + 1 AP) or (1 STA + 1 of (P2P or NAN)) or (2 AP) or (2 STA)
-WIFI_HAL_INTERFACE_COMBINATIONS := {{{STA}, 1}, {{AP}, 1}}, {{{STA}, 1}, {{P2P, NAN}, 1}}, {{{AP}, 2}}, {{{STA}, 2}}
 WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
 WIFI_DRIVER_STATE_OFF := "OFF"
 WIFI_DRIVER_STATE_ON := "ON"
 WIFI_FEATURE_HOSTAPD_11AX := true
+WIFI_HIDL_FEATURE_AWARE := true
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-CONFIG_ACS := true
-CONFIG_IEEE80211AC := true
-CONFIG_IEEE80211AX := true
+# Inherit the proprietary images
+include vendor/xiaomi/pipa-firmware/BoardConfigVendor.mk
 
 # Inherit the proprietary files
 include vendor/xiaomi/pipa/BoardConfigVendor.mk
