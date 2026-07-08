@@ -1,11 +1,7 @@
-type fingerprint_device, dev_type;
-
-type hall_device, dev_type;
-
 type sound_device, dev_type;
 
-type ultrasound_device, dev_type;
-
-type xiaomi_keyboard_device, dev_type;
-
+# Xiaomi Touch
 type xiaomi_touch_device, dev_type;
+
+# Xiaomi Keyboard
+type xiaomi_keyboard_device, dev_type;

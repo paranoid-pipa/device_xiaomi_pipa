@@ -19,17 +19,61 @@ from extract_utils.main import (
     ExtractUtilsModule,
 )
 
-namespace_imports = [
-    'device/xiaomi/pipa',
-    'hardware/qcom-caf/common/libqti-perfd-client',
-    'hardware/qcom-caf/sm8250',
-    'hardware/qcom-caf/wlan',
-    'hardware/xiaomi',
-    'vendor/qcom/opensource/commonsys/display',
-    'vendor/qcom/opensource/commonsys-intf/display',
-    'vendor/qcom/opensource/dataservices',
-    'vendor/qcom/opensource/display'
-]
+blob_fixups: blob_fixups_user_type = {
+    'system_ext/lib64/libwfdnative.so': blob_fixup()
+        .add_needed('libinput_shim.so'),
+    'vendor/etc/init/init.batterysecret.rc': blob_fixup()
+        .regex_replace('.*seclabel u:r:batterysecret:s0\n', ''),
+    'vendor/etc/init/init.mi_thermald.rc': blob_fixup()
+        .regex_replace('.*seclabel u:r:mi_thermald:s0\n', ''),
+    'vendor/etc/seccomp_policy/atfwd@2.0.policy': blob_fixup()
+        .add_line_if_missing('gettid: 1'),
+   ('vendor/lib/libaudioroute_ext.so'): blob_fixup()
+        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
+    'vendor/lib/hw/audio.primary.kona.so': blob_fixup()
+        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
+    'vendor/lib64/camera/components/com.mi.node.watermark.so': blob_fixup()
+        .add_needed('libpiex_shim.so'),
+   (
+        'vendor/lib64/libalAILDC.so',
+        'vendor/lib64/libalLDC.so',
+        'vendor/lib64/libalhLDC.so',
+   ): blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
+   (
+        'vendor/lib64/libMIAIHDRhvx_interface.so',
+        'vendor/lib64/libarcsoft_hdrplus_hvx_stub.so',
+        'vendor/lib64/libarcsoft_super_night_raw.so',
+        'vendor/lib64/libmialgo_rfs.so',
+   ): blob_fixup()
+        .clear_symbol_version('remote_handle_close')
+        .clear_symbol_version('remote_handle_invoke')
+        .clear_symbol_version('remote_handle_open')
+        .clear_symbol_version('remote_handle64_close')
+        .clear_symbol_version('remote_handle64_invoke')
+        .clear_symbol_version('remote_handle64_open')
+        .clear_symbol_version('remote_register_buf_attr'),
+    'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
+        .binary_regex_replace(b'\x9A\x0A\x00\x94', b'\x1F\x20\x03\xD5'),
+   (
+     'vendor/lib/libstagefright_soft_ac4dec.so',
+     'vendor/lib/libstagefright_soft_ddpdec.so',
+     'vendor/lib/libstagefrightdolby.so',
+     'vendor/lib64/libdlbdsservice.so',
+     'vendor/lib64/libstagefright_soft_ac4dec.so',
+     'vendor/lib64/libstagefright_soft_ddpdec.so',
+     'vendor/lib64/libstagefrightdolby.so'
+   ) :blob_fixup()
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
+    'vendor/lib64/libwvhidl.so': blob_fixup()
+        .add_needed('libcrypto_shim.so'),
+    'vendor/lib64/mediadrm/libwvdrmengine.so': blob_fixup()
+        .add_needed('libcrypto_shim.so'),
+}  # fmt: skip
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
@@ -40,53 +84,21 @@ lib_fixups: lib_fixups_user_type = {
         'com.qualcomm.qti.dpm.api@1.0',
         'libmmosal',
         'vendor.qti.hardware.wifidisplaysession@1.0',
-        'vendor.qti.imsrtpservice@3.0'
+        'vendor.qti.imsrtpservice@3.0',
     ): lib_fixup_vendor_suffix,
 }
 
-blob_fixups: blob_fixups_user_type = {
-    'system_ext/lib64/libwfdnative.so': blob_fixup()
-        .add_needed('libinput_shim.so'),
-    'vendor/etc/init/init.batterysecret.rc': blob_fixup()
-        .regex_replace(r'\s+seclabel u:r:batterysecret:s0', ''),
-    'vendor/etc/init/init.mi_thermald.rc': blob_fixup()
-        .regex_replace(r'\s+seclabel u:r:mi_thermald:s0', ''),
-    'vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc': blob_fixup()
-        .regex_replace(r'writepid /dev/cpuset/foreground/tasks', 'task_profiles ProcessCapacityHigh'),
-    'vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc': blob_fixup()
-        .regex_replace(r'writepid /dev/stune/nnapi-hal/tasks', 'task_profiles NNApiHALPerformance'),
-    'vendor/etc/init/vendor.qti.media.c2@1.0-service.rc': blob_fixup()
-        .regex_replace(r'writepid /dev/cpuset/foreground/tasks', 'task_profiles ProcessCapacityHigh'),
-    'vendor/etc/msm_irqbalance.conf': blob_fixup()
-        .regex_replace('#arch_timer, arm-pmu, arch_mem_timer', '#arch_timer, arm-pmu, arch_mem_timer, msm_drm, kgsl_3d0_irq')
-        .regex_replace('IGNORED_IRQ=27,23,38', 'IGNORED_IRQ=27,23,38,115,332'),
-    'vendor/lib64/camera/components/com.mi.node.watermark.so': blob_fixup()
-        .add_needed('libpiex_shim.so'),
-    ('vendor/lib64/libwvhidl.so', 'vendor/lib64/mediadrm/libwvdrmengine.so'): blob_fixup()
-        .add_needed('libcrypto_shim.so'),
-    (
-     'vendor/lib/libstagefright_soft_ac4dec.so',
-     'vendor/lib/libstagefright_soft_ddpdec.so',
-     'vendor/lib/libstagefrightdolby.so',
-     'vendor/lib64/libdlbdsservice.so',
-     'vendor/lib64/libstagefright_soft_ac4dec.so',
-     'vendor/lib64/libstagefright_soft_ddpdec.so',
-     'vendor/lib64/libstagefrightdolby.so'
-     ): blob_fixup()
-        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
-    'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
-        .sig_replace('9A 0A 00 94', '1F 20 03 D5'),
-    ('vendor/lib64/libalAILDC.so', 'vendor/lib64/libalLDC.so', 'vendor/lib64/libalhLDC.so'): blob_fixup()
-        .clear_symbol_version('AHardwareBuffer_allocate')
-        .clear_symbol_version('AHardwareBuffer_describe')
-        .clear_symbol_version('AHardwareBuffer_lock')
-        .clear_symbol_version('AHardwareBuffer_release')
-        .clear_symbol_version('AHardwareBuffer_unlock'),
-    'vendor/lib/libaudioroute_ext.so': blob_fixup()
-        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
-    'vendor/lib/hw/audio.primary.kona.so': blob_fixup()
-        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
-}  # fmt: skip
+namespace_imports = [
+    'hardware/qcom-caf/common/libqti-perfd-client',
+    'hardware/qcom-caf/sm8250',
+    'hardware/qcom-caf/wlan',
+    'hardware/xiaomi',
+    'vendor/qcom/opensource/commonsys-intf/display',
+    'vendor/qcom/opensource/commonsys/display',
+    'vendor/qcom/opensource/dataservices',
+    'vendor/qcom/opensource/display',
+    'vendor/xiaomi/pipa',
+]
 
 module = ExtractUtilsModule(
     'pipa',

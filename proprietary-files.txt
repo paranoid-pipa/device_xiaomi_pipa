@@ -1,5 +1,8 @@
+# Unpinned blobs from munch-user 13 RKQ1.211001.001 V816.0.9.0.ULMMIXM release-keys
 # Unpinned blobs from pipa_pad_cn-user 14 UKQ1.240624.001 OS2.0.19.0.UMZCNXM release-keys
-# dada: dada-user 16 BP2A.250605.015 OS2.0.222.0.WOCMIXM release-keys
+# Unpinned blobs from pipa_global-user RKQ1.211001.001 OS2.0.14.0.UMZMIXM_14.0 release-keys
+# dada: dada-user 16 BP2A.250605.015 OS2.0.217.0.WOCMIXM release-keys
+# lmi: lmi-user 11 RKQ1.200826.002 V12.5.3.0.RJKMIXM release-keys
 
 # ACDB
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
@@ -18,10 +21,6 @@ vendor/etc/init/vendor.qti.adsprpc-service.rc
 vendor/lib/libadsprpc.so
 vendor/lib64/libadsp_default_listener.so
 vendor/lib64/libadsprpc.so
-
-# ADSP modules (aptX)
-vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDADV_Encoder.so
-vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDAD_Speech_Decoder.so
 
 # ADSP modules
 vendor/lib/rfsa/adsp/capi_v2_dap_cpdp.so
@@ -60,10 +59,14 @@ vendor/lib/rfsa/adsp/misound_res_headphone.bin
 vendor/lib/rfsa/adsp/misound_res_spk.bin
 vendor/lib/rfsa/adsp/misound_res_spk4ch.bin
 
+# ADSP modules (aptX)
+vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDADV_Encoder.so
+vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDAD_Speech_Decoder.so
+
 # Audio
 vendor/lib/hw/audio.primary.kona.so
-vendor/lib/vndk/libxlog.so
 vendor/lib/liba2dpoffload.so
+vendor/lib/vndk/libxlog.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -72,16 +75,16 @@ vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudiocloudctrl.so
-vendor/lib/libaudioparsers.so
 vendor/lib/libaudioroute_ext.so
+vendor/lib/libqtigef.so
+vendor/lib/libresampler.so
+vendor/lib/libaudioparsers.so
 vendor/lib/libbatterylistener.so
 vendor/lib/libcomprcapture.so
 vendor/lib/libexthwplugin.so
 vendor/lib/libhdmiedid.so
 vendor/lib/libhdmipassthru.so
 vendor/lib/libhfp.so
-vendor/lib/libqtigef.so
-vendor/lib/libresampler.so
 vendor/lib/libsndmonitor.so
 vendor/lib/libspkrprot.so
 vendor/lib/libssrec.so
@@ -92,10 +95,10 @@ vendor/firmware/aw882xx_acf.bin
 
 # Audio FX modules
 vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libshoebox.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib/soundfx/libshoebox.so
 
 # Audio FX MiSound module
 vendor/lib/soundfx/libmisoundfx.so
@@ -158,13 +161,15 @@ vendor/lib64/com.qti.feature2.stub.so
 vendor/lib64/com.qti.feature2.swmf.so
 vendor/lib64/libAF.so
 vendor/lib64/libFaceCenterAlgo.so
+vendor/lib64/libI420colorconvert.so
 vendor/lib64/libSNPE.so
 vendor/lib64/libXMFaceFocus.so
-vendor/lib64/libalAILDC.so
+vendor/lib64/libalAILDC.so;DISABLE_CHECKELF
 vendor/lib64/libalCFR.so
-vendor/lib64/libalLDC.so
-vendor/lib64/libalhLDC.so
+vendor/lib64/libalLDC.so;DISABLE_CHECKELF
+vendor/lib64/libalhLDC.so;DISABLE_CHECKELF
 vendor/lib64/libarcsoft_beautyshot.so
+vendor/lib64/libarcsoft_dualcam_refocus.so
 vendor/lib64/libarcsoft_hdr_detection.so
 vendor/lib64/libarcsoft_high_dynamic_range.so
 vendor/lib64/libarcsoft_low_light_hdr.so
@@ -190,11 +195,12 @@ vendor/lib64/libipebpsstriping.so
 vendor/lib64/libmi_supernight_raw.so
 vendor/lib64/libmiai_portraitsupernight.so;DISABLE_CHECKELF
 vendor/lib64/libmialgo_ie_capture.so
-vendor/lib64/libmialgo_rfs.so
+vendor/lib64/libmialgo_rfs.so;DISABLE_CHECKELF
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
 vendor/lib64/libmialgoengine.so
 vendor/lib64/libmibokeh_855.so
+vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_faceproc2.so
 vendor/lib64/libmpbase.so
@@ -223,6 +229,12 @@ vendor/lib64/libthreadutils.so
 vendor/lib64/libtriplecam_optical_zoom_control.so
 vendor/lib64/libvideofilter_only.so
 vendor/lib64/libvidhance.so
+vendor/lib64/libvidhance_active_ois.so
+vendor/lib64/libvidhance_face_stabilizer.so
+vendor/lib64/libvidhance_horizon_correction.so
+vendor/lib64/libvidhance_ldc.so
+vendor/lib64/libvidhance_stabilizer.so
+vendor/lib64/libvidhance_super_stabilization.so
 vendor/lib64/libxml2_vendor.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 
@@ -288,6 +300,26 @@ vendor/etc/camera/facefocus_models/facedet_front.dlc
 vendor/etc/camera/facefocus_models/facedet_full.dlc
 vendor/etc/camera/facefocus_models/facedet_part.dlc
 vendor/etc/camera/facefocus_models/facevalid.dlc
+vendor/etc/camera/102_SummerDay.png
+vendor/etc/camera/103_Fantasy.png
+vendor/etc/camera/104_Meet.png
+vendor/etc/camera/105_WindSing.png
+vendor/etc/camera/106_Lost.png
+vendor/etc/camera/107_Central.png
+vendor/etc/camera/108_NorthernEurope.png
+vendor/etc/camera/109_Rome.png
+vendor/etc/camera/110_BlackGold.png
+vendor/etc/camera/111_GreenOrange.png
+vendor/etc/camera/112_CyberPunk.png
+vendor/etc/camera/113_BlackIce.png
+vendor/etc/camera/121_Bleach.png
+vendor/etc/camera/122_Thriller.png
+vendor/etc/camera/123_TealOrange.png
+vendor/etc/camera/124_JapaneseStyle.png
+vendor/etc/camera/125_Latin.png
+vendor/etc/camera/126_Fantasy2.png
+vendor/etc/camera/127_Creamy.png
+vendor/etc/camera/128_Sepia.png
 vendor/etc/camera/CFR_para_W_V01.bin
 vendor/etc/camera/CFR_para_config.xml
 vendor/etc/camera/GpuKernelRepo.pb
@@ -365,6 +397,14 @@ vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
+# Display calibration
+vendor/etc/qdcm_calib_data_xiaomi_m82_36_02_0a_video_mode_dual_dsi_dphy_panel.xml
+vendor/etc/qdcm_calib_data_xiaomi_m82_42_02_0b_video_mode_dual_dsi_dphy_panel.xml
+
+# Display config
+product/etc/displayconfig/display_id_4630946808805831297.xml:vendor/etc/displayconfig/display_id_4630946808805831297.xml
+product/etc/displayconfig/display_id_4630946922172900481.xml:vendor/etc/displayconfig/display_id_4630946922172900481.xml
+
 # Display (HDR)
 vendor/lib64/libhdr_tm.so
 
@@ -379,14 +419,6 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
-
-# Display config
-product/etc/displayconfig/display_id_4630946808805831297.xml:vendor/etc/displayconfig/display_id_4630946808805831297.xml
-product/etc/displayconfig/display_id_4630946922172900481.xml:vendor/etc/displayconfig/display_id_4630946922172900481.xml
-
-# Display calibration
-vendor/etc/qdcm_calib_data_xiaomi_m82_36_02_0a_video_mode_dual_dsi_dphy_panel.xml
-vendor/etc/qdcm_calib_data_xiaomi_m82_42_02_0b_video_mode_dual_dsi_dphy_panel.xml
 
 # Display postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
@@ -404,21 +436,21 @@ vendor/lib64/vendor.display.postproc@1.0.so
 vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
 vendor/etc/dolby/dax-default.xml
 vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
 vendor/etc/media_codecs_dolby_audio.xml
-vendor/lib/soundfx/libhwdap.so
-vendor/lib/soundfx/libswgamedap.so
-vendor/lib/soundfx/libswvqe.so
+vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
 vendor/lib/libdapparamstorage.so
 vendor/lib/libdeccfg.so
 vendor/lib/libstagefright_soft_ac4dec.so
 vendor/lib/libstagefright_soft_ddpdec.so
-vendor/lib/libstagefrightdolby.so
+vendor/lib/soundfx/libhwdap.so
+vendor/lib/soundfx/libswgamedap.so
+vendor/lib/soundfx/libswvqe.so
 vendor/lib/vendor.dolby.hardware.dms@2.0.so
 vendor/lib64/libdapparamstorage.so
 vendor/lib64/libdlbdsservice.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0.so
+vendor/lib/libstagefrightdolby.so
 
 # DPM
 system/framework/tcmclient.jar
@@ -492,62 +524,44 @@ vendor/etc/init/feature_enabler_client.rc
 # FM
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
-# HotwordEnrollment
-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk;PRESIGNED
-product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk;PRESIGNED
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-system_ext/framework/com.android.hotwordenrollment.common.util.jar
-
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # Graphics (Adreno)
-vendor/gpu/kbc/sequence_manifest.bin
-vendor/gpu/kbc/unified_kbcs_32.bin
-vendor/gpu/kbc/unified_kbcs_64.bin
-vendor/gpu/kbc/unified_ksqs.bin
-vendor/lib/egl/libEGL_adreno.so;SYMLINK=vendor/lib/libEGL_adreno.so|0b6e09ba4dd6aaf221444fcc9adc40d2e597364a
-vendor/lib/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib/libGLESv2_adreno.so|f911273ad25fe2d0ee5a1336fcb603a04a06e1a1
-vendor/lib/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib/libq3dtools_adreno.so|994551fb9b829caf80bb7a8f84b4b89cb3104ed9
-vendor/lib/egl/eglSubDriverAndroid.so|c4133b15d0a36f0775418724e09ce76681baa16d
-vendor/lib/egl/libGLESv1_CM_adreno.so|5ab7196d4c8ae861ff484cb6b1f4b5ac3c9738b4
-vendor/lib/egl/libq3dtools_esx.so|d6a9c80dab61e9bddf120b01753166c3ef5d23d7
-vendor/lib/libC2D2.so|1c89e545a5dabc94d27db32031594a792d91d6fd
-vendor/lib/libCB.so|22585f517683171c74dbc58e561611c796f061b3
-vendor/lib/libOpenCL.so|d5642e23207996dbbc13273927127ecf04fced53
-vendor/lib/libVkLayer_q3dtools.so|f8391c9500a3598c41ecb83b8e17642abd250cb8
-vendor/lib/libadreno_app_profiles.so|3f37b410477cec277a803a722dfed59484d4f1bc
-vendor/lib/libadreno_utils.so|668fb9acb7ecab7452bfc665250f851a25b6521d
-vendor/lib/libc2d30_bltlib.so|b98194a7b600b8a23d5e21edf14f3ee0b82f77d5
-vendor/lib/libgpudataproducer.so|0ad0bdce5b4c36e10a10503b13b903d5eeeb7c7f
-vendor/lib/libgsl.so|bf7ceef8536752db323775d5a6a093b3f209e8f2
-vendor/lib/libkcl.so
-vendor/lib/libkernelmanager.so
-vendor/lib/libllvm-glnext.so|60c4a1792b96932ca027060a939a7ef155e52e01
-vendor/lib/libllvm-qcom.so|01afd4f1a88d6fcd4e2123aa2e13add8ad4339fc
-vendor/lib/vendor.qti.qspmhal@1.0.so
-vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so|74766c6648c64e6af2944fe1a983f1e70f548cbe
-vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so|a031aad0bcfd0b47d9ce0e2b2871df60a5af48b6
-vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so|172810bc218ab55fe95f628ab1c0d37833eb0021
-vendor/lib64/egl/eglSubDriverAndroid.so|2692fd8aac6a9fd49faace2213b2631f7595afad
-vendor/lib64/egl/libGLESv1_CM_adreno.so|b9e14710b9c2be024e1fdf77d60266423e484047
-vendor/lib64/egl/libq3dtools_esx.so|5b1f30484211b84f802d3aaccddd728cd0dcbc70
-vendor/lib64/libC2D2.so|0b4aa67ef7e86df61a1bfd7dfd4680e0f0d7104c
-vendor/lib64/libCB.so|c458543bc706d0dcfac756a6e86e2654592f8b16
-vendor/lib64/libOpenCL.so|76d6d5f9e89d896665fdd06cbede3e21c92c8068
-vendor/lib64/libVkLayer_q3dtools.so|4cb0662d41c0fb39c6c7d5daa7db2e73d3b5f457
-vendor/lib64/libadreno_app_profiles.so|19fdab3bda70acad8e28d82cb1a3ed49c74fcf02
-vendor/lib64/libadreno_utils.so|240872ec23febc6ca7b254dbb38b7218b86f6dd5
-vendor/lib64/libc2d30_bltlib.so|e330210916d482cdbf6fe942145a664679fa9c88
-vendor/lib64/libgpudataproducer.so|7ba51b163995aecad820d53a7f968902482da22e
-vendor/lib64/libgsl.so|8fd5b9c8e17c876544d416b694d7c2e8c96fe146
-vendor/lib64/libkcl.so
-vendor/lib64/libkernelmanager.so
-vendor/lib64/libllvm-glnext.so|864e52831a8c18e10da5674288c371598f4d4173
-vendor/lib64/libllvm-qcom.so|f6af31fb74163e3341918c861bece94b8feecc08
-vendor/lib64/vendor.qti.qspmhal@1.0.so|b24925548b969a7745955bbd48069207aa5889fc
+vendor/lib/egl/libEGL_adreno.so;SYMLINK=vendor/lib/libEGL_adreno.so
+vendor/lib/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib/libGLESv2_adreno.so
+vendor/lib/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib/libq3dtools_adreno.so
+vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/libGLESv1_CM_adreno.so
+vendor/lib/egl/libq3dtools_esx.so
+vendor/lib/libC2D2.so
+vendor/lib/libCB.so
+vendor/lib/libOpenCL.so
+vendor/lib/libVkLayer_q3dtools.so
+vendor/lib/libadreno_utils.so
+vendor/lib/libc2d30_bltlib.so
+vendor/lib/libgpudataproducer.so
+vendor/lib/libgsl.so
+vendor/lib/libllvm-glnext.so
+vendor/lib/libllvm-qcom.so
+vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so
+vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so
+vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so
+vendor/lib64/egl/eglSubDriverAndroid.so
+vendor/lib64/egl/libGLESv1_CM_adreno.so
+vendor/lib64/egl/libq3dtools_esx.so
+vendor/lib64/libC2D2.so
+vendor/lib64/libCB.so
+vendor/lib64/libOpenCL.so
+vendor/lib64/libVkLayer_q3dtools.so
+vendor/lib64/libadreno_utils.so
+vendor/lib64/libc2d30_bltlib.so
+vendor/lib64/libgpudataproducer.so
+vendor/lib64/libgsl.so
+vendor/lib64/libllvm-glnext.so
+vendor/lib64/libllvm-qcom.so
 
 # Graphics (Adreno firmware)
 vendor/firmware/a650_gmu.bin
@@ -559,8 +573,14 @@ vendor/firmware/a650_zap.elf
 vendor/firmware/a650_zap.mdt
 
 # Graphics (Vulkan)
-vendor/lib/hw/vulkan.adreno.so|267e7821c594c0db7dde56b7ef53ceb5980716e1
-vendor/lib64/hw/vulkan.adreno.so|ce27b014f47e93fa55096f5d50d686fbe12c3e8f
+vendor/lib/hw/vulkan.adreno.so
+vendor/lib64/hw/vulkan.adreno.so
+
+# HotwordEnrollment
+product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk;PRESIGNED
+product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk;PRESIGNED
+system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
+system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
 # IPA firmware
 vendor/etc/init/ipa_fws.rc
@@ -653,20 +673,20 @@ vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 
 # OMX
-vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAacEnc.so
+vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAlacDec.so
-vendor/lib/libOmxAmrDec.so
 vendor/lib/libOmxAmrEnc.so
+vendor/lib/libOmxAmrDec.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxApeDec.so
 vendor/lib/libOmxDsdDec.so
-vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxEvrcEnc.so
-vendor/lib/libOmxG711Dec.so
+vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxG711Enc.so
-vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libOmxG711Dec.so
 vendor/lib/libOmxQcelp13Enc.so
+vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxVideoDSMode.so;DISABLE_CHECKELF
 vendor/lib/libOmxVpp.so;DISABLE_CHECKELF
 vendor/lib/libOmxWmaDec.so
@@ -790,8 +810,6 @@ vendor/lib64/libsensorslog.so
 vendor/lib64/libssc.so
 vendor/lib64/libssc_default_listener.so
 vendor/lib64/libssccalapi.so
-vendor/lib64/libultrasound.so
-vendor/lib64/sensors.mius.proximity.so
 vendor/lib64/sensors.ssc.so
 
 # SECCOMP policy
@@ -821,22 +839,16 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/ssr_setup
 
 # Thermal
-vendor/bin/mi_thermald|63b3a4dd3b1ae02d7f907bae87c358dbefe8866f
+vendor/bin/mi_thermald
 vendor/etc/init/init.mi_thermald.rc
 
-# Thermal engine
-vendor/bin/thermal-engine|f0d8db5cc6870a1db91897307cb42e5b2e0b8d0c
-vendor/etc/init/init_thermal-engine.rc
-vendor/lib/libthermalclient.so
-vendor/lib64/libthermalclient.so
-
 # Thermal config
-vendor/etc/thermal-4k.conf|a4d29453ffea355792d0ba6dad343b9de1e31e57
-vendor/etc/thermal-camera.conf|65d8cb243cac4285a10487d4b43e97914a4f82f9
+vendor/etc/thermal-4k.conf
+vendor/etc/thermal-camera.conf
 vendor/etc/thermal-cclassvideo.conf
 vendor/etc/thermal-cgame.conf
 vendor/etc/thermal-chg-only.conf
-vendor/etc/thermal-class0.conf|5daf08f2488b6bf05d24023eff507ac6624facb3
+vendor/etc/thermal-class0.conf
 vendor/etc/thermal-engine.conf
 vendor/etc/thermal-global-4k.conf
 vendor/etc/thermal-global-camera.conf
@@ -851,30 +863,36 @@ vendor/etc/thermal-global-normal.conf
 vendor/etc/thermal-global-tgame.conf
 vendor/etc/thermal-global-video.conf
 vendor/etc/thermal-global-videochat.conf
-vendor/etc/thermal-huanji.conf|f72eb40089f5aae15ec34dbd042a7a11c409f2b0
+vendor/etc/thermal-huanji.conf
 vendor/etc/thermal-india-4k.conf
 vendor/etc/thermal-india-camera.conf
 vendor/etc/thermal-india-chg-only.conf
-vendor/etc/thermal-india-class0.conf|7cc57c1e625297c600c840a08e6e7d2d0af81817
+vendor/etc/thermal-india-class0.conf
 vendor/etc/thermal-india-huanji.conf
-vendor/etc/thermal-india-mgame.conf|81be6383cf5e4a6593193174676b0087a0d3f5fc
+vendor/etc/thermal-india-mgame.conf
 vendor/etc/thermal-india-nolimits.conf
-vendor/etc/thermal-india-normal.conf|b9d5cd05c8b9c4e2b46efbaa404756efe7513de4
-vendor/etc/thermal-india-tgame.conf|79cad249b6dda381e4d93946c44af153bbb9996f
-vendor/etc/thermal-india-video.conf|bb15b873112319704323f219b382bd18b1996b56
+vendor/etc/thermal-india-normal.conf
+vendor/etc/thermal-india-tgame.conf
+vendor/etc/thermal-india-video.conf
 vendor/etc/thermal-india-videochat.conf
 vendor/etc/thermal-map-global.conf
-vendor/etc/thermal-map-india.conf|c522b5f0b68187ff545ba241764f12621b1bb444
-vendor/etc/thermal-map.conf|0a85826bf82f79f7429ab47d5aafc1f5a63ab2bc
-vendor/etc/thermal-mgame.conf|cfd2221c74b40ab644fb66710388fed419446886
-vendor/etc/thermal-nolimits.conf|c7eaea7409d1f6ab32f32cba682fb2cd4d8fe06d
-vendor/etc/thermal-normal.conf|8dc1c5602002414eb03556a574eebe669b2b172e
-vendor/etc/thermal-region-map.conf|8a60e0d66e519e0301c3192a5c1740e21f2170bf
-vendor/etc/thermal-tgame.conf|f3fdcae889f44e70320aea480c1314a07f018715
-vendor/etc/thermal-video.conf|e2deb3c64d2239f27f0530a7eef4631451865af5
+vendor/etc/thermal-map-india.conf
+vendor/etc/thermal-map.conf
+vendor/etc/thermal-mgame.conf
+vendor/etc/thermal-nolimits.conf
+vendor/etc/thermal-normal.conf
+vendor/etc/thermal-region-map.conf
+vendor/etc/thermal-tgame.conf
+vendor/etc/thermal-video.conf
 vendor/etc/thermal-videochat.conf
 vendor/etc/thermal-yuanshen.conf
-vendor/etc/thermald-devices.conf|12d33ce9c3420572a07419d3317083eafe5b82e8
+vendor/etc/thermald-devices.conf
+
+# Thermal engine
+vendor/bin/thermal-engine
+vendor/etc/init/init_thermal-engine.rc
+vendor/lib/libthermalclient.so
+vendor/lib64/libthermalclient.so
 
 # Time services
 vendor/app/TimeService/TimeService.apk
@@ -934,7 +952,7 @@ system_ext/etc/init/wfdservice.rc|907def8565d8f91f531ca7dfad880af05d540b0c
 system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml|6669d5ee462c981663b8ac573d84d334e4eed96c
 system_ext/etc/seccomp_policy/wfdservice64.policy|1e331272649395423b11c575892e0bdc9433b820
 system_ext/etc/wfdconfigsink.xml|d718bc1ccb3e6e52a0af7bf4de62445c0b083651
-system_ext/lib64/libwfdnative.so;SYMLINK=system_ext/priv-app/WfdService/lib/arm64/libwfdnative.so|9513bbbd813dd05fb063d3c9e72640a1bc9156c2|f2918bbd8e4c691299e840863e8cb502a47bb773
+system_ext/lib64/libwfdnative.so;SYMLINK=system_ext/priv-app/WfdService/lib/arm64/libwfdnative.so|9513bbbd813dd05fb063d3c9e72640a1bc9156c2
 system_ext/lib64/libmmrtpdecoder.so|8b143c0b004a2f5ab8d7911dd463de0ceea794e7
 system_ext/lib64/libmmrtpencoder.so|eef3f64e6c2892fc0c87e176f5a83f7fe07761d3
 system_ext/lib64/libwfdavenhancements.so|8c968c6930e44901ef8c6abd6356f2308600d90e

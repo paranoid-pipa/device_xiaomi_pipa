@@ -20,3 +20,6 @@ allow devicesettings_app proc_stat:file { read open getattr };
 
 allow devicesettings_app vendor_sysfs_kgsl_gpuclk:file { read open getattr };
 allow devicesettings_app vendor_sysfs_kgsl:file { read open getattr };
+
+# Allow property access
+get_prop(devicesettings_app, vendor_default_prop)
