@@ -146,6 +146,9 @@ PRODUCT_PACKAGES += \
     LunarisDolby \
     XiaomiParts
 
+PRODUCT_SELINUX_TREBLE_LABELING_TRACKING_LIST_FILE := \
+    device/xiaomi/pipa/sepolicy/tracking_list.yaml
+
 # Display
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.composer-service
