@@ -1,5 +1,5 @@
 # Device
-git clone --depth 1 -b BR-17 https://github.com/paranoid-pipa/device_xiaomi_pipa-kernel.git device/xiaomi/pipa-kernel
+git clone --depth 1 -b 17 https://github.com/paranoid-pipa/device_xiaomi_pipa-kernel.git device/xiaomi/pipa-kernel
 
 # Vendor
 git clone --depth 1 -b 17 https://github.com/paranoid-pipa/vendor_xiaomi_pipa vendor/xiaomi/pipa
