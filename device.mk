@@ -189,6 +189,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
