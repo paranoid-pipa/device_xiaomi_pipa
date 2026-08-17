@@ -69,6 +69,13 @@
     <string name="dirac_headset_bluetooth_linefree">Mi Bluetooth Earphones</string>
     <string name="dirac_headset_redmi_earphones">Redmi Earphones</string>
 
+    <string name="dirac_title">Dirac Audio</string>
+    <string name="dirac_summary">Adjust audio presets and equalizer</string>
+    <string name="dirac_enable">Enable Dirac</string>
+    <string name="dirac_headset_title">Headset Type</string>
+    <string name="dirac_preset_title">Equalizer Preset</string>
+    <string name="dirac_hifi_title">HiFi Mode</string>
+    <string name="dirac_hifi_summary">Enable high-fidelity audio processing</string>
     <!-- Dirac settings: Equalizer presets -->
     <string name="dirac_preset_live">Live</string>
     <string name="dirac_preset_balanced">Balanced</string>
@@ -76,6 +83,18 @@
     <string name="dirac_preset_treble_reduction">Treble Reduction</string>
     <string name="dirac_preset_soft_bass">Soft Bass</string>
     <string name="dirac_preset_soft_treble">Soft Treble</string>
+    <string name="dirac_preset_default">Default</string>
+    <string name="dirac_preset_rock">Rock</string>
+    <string name="dirac_preset_jazz">Jazz</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_classical">Classical</string>
+    <string name="dirac_preset_hiphop">Hip-Hop</string>
+    <string name="dirac_preset_blues">Blues</string>
+    <string name="dirac_preset_electronic">Electronic</string>
+    <string name="dirac_preset_country">Country</string>
+    <string name="dirac_preset_dance">Dance</string>
+    <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_bass_booster">Bass Booster</string>
 
     <!-- Scene Selection -->
     <string name="music_headset_scenario_select">Select scene</string>
