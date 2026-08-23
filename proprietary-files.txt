@@ -1,6 +1,6 @@
 # Unpinned blobs from munch-user 13 RKQ1.211001.001 V816.0.9.0.ULMMIXM release-keys
 # Unpinned blobs from pipa_pad_cn-user 14 UKQ1.240624.001 OS2.0.20.0.UMZCNXM release-keys
-# Unpinned blobs from pipa_global-user RKQ1.211001.001 OS2.0.14.0.UMZMIXM_14.0 release-keys
+# pipa: global-user 14 RKQ1.211001.001 OS2.0.14.0.UMZMIXM_14.0 release-keys
 # dada: dada-user 16 BP2A.250605.031 OS3.0.302.0.WOCMIXM release-keys
 # lmi: lmi-user 11 RKQ1.200826.002 V12.5.3.0.RJKMIXM release-keys
 
@@ -577,10 +577,10 @@ vendor/lib/hw/vulkan.adreno.so
 vendor/lib64/hw/vulkan.adreno.so
 
 # HotwordEnrollment
-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk;PRESIGNED
-product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk;PRESIGNED
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-system_ext/framework/com.android.hotwordenrollment.common.util.jar
+product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk;PRESIGNED|e0c441714989a6b5957e4fc7ceb94838941b82db
+product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk;PRESIGNED|e57a65aa8bb0b769479e05c564e22054faf50a11
+system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|99cfd80965c170f4885a7dd62c0eaad1a0c7840f
+system_ext/framework/com.android.hotwordenrollment.common.util.jar|df689dc9f599fbf0791191a08609642341efb37f
 
 # IPA firmware
 vendor/etc/init/ipa_fws.rc
