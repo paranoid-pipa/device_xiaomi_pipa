@@ -24,5 +24,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
         KeyboardUtils.setup(context);
         PenUtils.setup(context);
+        PenChargingService.start(context);
     }
 }

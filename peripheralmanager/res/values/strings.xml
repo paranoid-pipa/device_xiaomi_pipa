@@ -21,4 +21,16 @@
     <string name="lid_summary">Configure cover wake/sleep behavior</string>
     <string name="lid_switch_title">Enable Smart Cover</string>
     <string name="lid_switch_summary">Wake or sleep the device when the cover is opened or closed</string>
+
+    <!-- Pen Charging Notification -->
+    <string name="pen_charging_channel_name">Stylus Charging</string>
+    <string name="pen_charging_channel_description">Shows stylus battery status while wirelessly charging</string>
+    <string name="pen_charging_notification_title">Stylus Charging</string>
+    <string name="pen_charging_notification_title_full">Stylus Fully Charged</string>
+    <string name="pen_charging_notification_content">Battery: %d%%</string>
+    <string name="pen_charging_notification_content_full">Stylus is fully charged (100%)</string>
+    <string name="pen_charging_notification_content_unknown">Charging…</string>
+    <string name="pen_fully_charged_toast">Stylus Fully Charged</string>
+    <string name="stylus_charging_notification_title">Stylus charging notification</string>
+    <string name="stylus_charging_notification_summary">Show persistent notification with battery percentage while charging</string>
 </resources>

@@ -83,6 +83,14 @@ public class StylusSettingsFragment extends PreferenceFragment implements
             mStylusPreference.getBoolean(FORCE_RECOGNIZE_STYLUS_KEY, false));
     }
 
+    SwitchPreferenceCompat notifPref =
+        (SwitchPreferenceCompat)findPreference(PenChargingService.PREF_STYLUS_CHARGING_NOTIF);
+    if (notifPref != null) {
+        notifPref.setChecked(
+            mStylusPreference.getBoolean(PenChargingService.PREF_STYLUS_CHARGING_NOTIF, true));
+    }
+  }
+
     @Override
     public void onResume() {
         super.onResume();
