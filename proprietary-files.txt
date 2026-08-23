@@ -1,4 +1,3 @@
-# Unpinned blobs from munch-user 13 RKQ1.211001.001 V816.0.9.0.ULMMIXM release-keys
 # Unpinned blobs from pipa_pad_cn-user 14 UKQ1.240624.001 OS2.0.20.0.UMZCNXM release-keys
 # pipa: global-user 14 RKQ1.211001.001 OS2.0.14.0.UMZMIXM_14.0 release-keys
 # dada: dada-user 16 BP2A.250605.031 OS3.0.302.0.WOCMIXM release-keys
