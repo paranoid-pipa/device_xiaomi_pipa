@@ -234,9 +234,6 @@ PRODUCT_PACKAGES += \
     media_codecs_performance_kona.xml \
     video_system_specs.json
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
-
 $(call soong_config_set_bool,stagefright,target_disable_thumbnail_block_model,true)
 
 # OMX
