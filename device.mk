@@ -143,7 +143,6 @@ PRODUCT_PACKAGES += \
 # Device-specific settings
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer \
-    XiaomiDolby \
     XiaomiParts
 
 PRODUCT_SELINUX_TREBLE_LABELING_TRACKING_LIST_FILE := \
