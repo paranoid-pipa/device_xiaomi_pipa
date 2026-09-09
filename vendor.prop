@@ -217,12 +217,6 @@ ro.bootanim.set_orientation_4630946808805831297=ORIENTATION_90
 ro.bootanim.set_orientation_4630946922172900481=ORIENTATION_90
 ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 
-# Dolby
-ro.vendor.audio.dolby.dax.version=DAX3_3.6
-ro.vendor.audio.dolby.dax.support=true
-ro.vendor.audio.dolby.surround.enable=true
-ro.vendor.dolby.dax.version=DAX3_3.6.1.6_r1
-
 # DRM
 drm.service.enabled=true
 
