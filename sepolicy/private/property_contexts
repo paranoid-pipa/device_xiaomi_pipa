@@ -2,12 +2,6 @@
 persist.devicesettings.    u:object_r:devicesettings_prop:s0
 ro.devicesettings.         u:object_r:devicesettings_prop:s0
 
-# Dolby audio
-ro.vendor.dolby.dax.version                                                                         u:object_r:exported_system_prop:s0
-ro.vendor.audio.dolby.dax.version                                                                   u:object_r:exported_system_prop:s0
-ro.vendor.audio.dolby.surround.enable                                                               u:object_r:exported_system_prop:s0
-ro.vendor.audio.dolby.dax.support                                                                   u:object_r:exported_system_prop:s0
-
 # Vendor init
 ro.product.marketname                                                                               u:object_r:build_prop:s0
 
