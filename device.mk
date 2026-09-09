@@ -160,13 +160,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
-# Dolby Dependenices
-PRODUCT_PACKAGES += \
-    libcodec2_hidl@1.0.vendor \
-    libcodec2_soft_common.vendor \
-    libstagefright_softomx.vendor \
-    libstagefright_softomx_plugin.vendor
-
 # Dolby VNDK libs
 PRODUCT_PACKAGES += \
     libstagefright_foundation-v33
@@ -244,6 +237,9 @@ PRODUCT_PACKAGES += \
     media_codecs_kona.xml \
     media_codecs_performance_kona.xml \
     video_system_specs.json
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
 
 $(call soong_config_set_bool,stagefright,target_disable_thumbnail_block_model,true)
 
