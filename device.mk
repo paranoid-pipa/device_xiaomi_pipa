@@ -238,7 +238,12 @@ $(call soong_config_set_bool,stagefright,target_disable_thumbnail_block_model,tr
 
 # OMX
 PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
     libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
