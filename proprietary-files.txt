@@ -451,6 +451,13 @@ vendor/lib64/libdlbdsservice.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0.so
 
+# Dolby Vision
+system_ext/lib/libdolbyottcontrol.so
+system_ext/lib/libdovi_omx.so
+system_ext/lib64/libdolbyottcontrol.so
+system_ext/lib64/libdovi_omx.so
+vendor/etc/dolby_vision.cfg
+
 # DPM
 system/framework/tcmclient.jar
 system_ext/bin/dpmd

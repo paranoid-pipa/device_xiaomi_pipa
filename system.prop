@@ -16,6 +16,10 @@ debug.gralloc.gfx_ubwc_disable=0
 debug.sf.enable_hwc_vds=1
 persist.vendor.color.matrix=2
 
+# Dolby Vision
+debug.config.media.video.dolby_vision_suports=true
+ro.video.dolby_vision_omx=true
+
 # DPM
 persist.vendor.dpm.feature=1
 
