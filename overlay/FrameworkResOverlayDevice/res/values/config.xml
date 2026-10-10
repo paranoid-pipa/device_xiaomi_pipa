@@ -722,17 +722,4 @@
     <!-- Whether WM DisplayContent supports high performance transitions
          (lower-end devices may want to disable) -->
     <bool name="config_deviceSupportsHighPerfTransitions">false</bool>
-
-    <!-- An array of integers describing the HDR modes that are supported by the display.
-         Valid values are:
-             1 - DOLBY_VISION
-             2 - HDR10
-             3 - HLG
-             4 - HDR10_PLUS
-    -->
-    <integer-array name="config_hdrModeSupportedTypes">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </integer-array>
 </resources>
