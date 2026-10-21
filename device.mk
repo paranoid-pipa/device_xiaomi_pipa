@@ -255,10 +255,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ApertureOverlayDevice \
     FrameworkResOverlayDevice \
-    Launcher3OverlayDevice \
     LineageSDKOverlayDevice \
     LineageSettingsOverlayDevice \
-    LineageSettingsProviderOverlayDevice \
     LineageSystemUIOverlayDevice \
     SettingsLibOverlayDevice \
     SettingsOverlayDevice \
